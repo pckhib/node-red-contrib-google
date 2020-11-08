@@ -120,6 +120,8 @@ module.exports = function(RED) {
                 operation = operation[val];
             });
 
+            console.log(msg);
+            
             operation(msg.payload, function(err, res) {
 
                 if (err) {
@@ -138,7 +140,6 @@ module.exports = function(RED) {
                     text: 'success'
                 });
                 msg.payload = res.data;
-                msg.payload = JSON.Stringify(msg.payload);
                 node.send(msg);
             });
 
