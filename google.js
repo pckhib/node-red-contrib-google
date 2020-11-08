@@ -138,7 +138,7 @@ module.exports = function(RED) {
                     text: 'success'
                 });
                 msg.payload = res.data;
-                console.log(msg);
+                msg.payload = JSON.Stringify(msg.payload);
                 node.send(msg);
             });
 
