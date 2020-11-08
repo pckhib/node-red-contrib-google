@@ -120,6 +120,10 @@ module.exports = function(RED) {
                 operation = operation[val];
             });
 
+            console.log("props");
+            console.log(props);
+            operation = operation.bind(props[0]);
+            console.log("operation");
             console.log(operation);
             
             operation(msg.payload, function(err, res) {
