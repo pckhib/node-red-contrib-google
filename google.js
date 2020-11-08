@@ -120,6 +120,8 @@ module.exports = function(RED) {
                 operation = operation[val];
             });
 
+            console.log(operation);
+            
             operation(msg.payload, function(err, res) {
 
                 if (err) {
