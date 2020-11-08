@@ -120,7 +120,7 @@ module.exports = function(RED) {
                 operation = operation[val];
             });
 
-            msg.payload = JSON.Stringify(msg.payload);
+            msg.payload = JSON.stringify(msg.payload);
             
             operation(msg.payload, function(err, res) {
 
