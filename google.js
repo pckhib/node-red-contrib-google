@@ -138,6 +138,7 @@ module.exports = function(RED) {
                     text: 'success'
                 });
                 msg.payload = res.data;
+                console.log(msg);
                 node.send(msg);
             });
 
