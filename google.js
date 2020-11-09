@@ -120,11 +120,10 @@ module.exports = function(RED) {
                 operation = operation[val];
             });
 
-            //console.log("operation");
-            //console.log(operation.toString());
-            operation = operation.bind(api);
-            
-            operation(msg.payload, function(err, res) {
+            console.log("operation");
+            console.log(operation.toString());
+            //operation = operation.bind(api);
+            operation.bind(api)(msg.payload, function(err, res) {
 
                 if (err) {
                     node.status({
