@@ -123,10 +123,7 @@ module.exports = function(RED) {
             //console.log("operation");
             //console.log(operation.toString());
 
-            console.log("msg");
-            console.log(msg);
-
-            operation.bind(api)(msg.payload, function(err, res) {
+            operation.bind(api)(msg.payload, {params: {}}, function(err, res) {
 
                 if (err) {
                     node.status({
