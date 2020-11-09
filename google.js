@@ -123,7 +123,8 @@ module.exports = function(RED) {
             //console.log("operation");
             //console.log(operation.toString());
 
-            operation.bind(api)(msg.payload, {data: {parameters: [22]}}, function(err, res) {
+            //operation.bind(api)(msg.payload, {data: {parameters: [22]}}, function(err, res) {
+            operation.bind(api)(msg.payload, {url: 'https://asdf234234223.sdfsdfsdf'}, function(err, res) {
 
                 if (err) {
                     node.status({
