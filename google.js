@@ -124,7 +124,7 @@ module.exports = function(RED) {
             //console.log(operation.toString());
 
             //operation.bind(api)(msg.payload, {data: {parameters: [22]}}, function(err, res) {
-            operation.bind(api)(msg.payload, {data: msg.payload}, function(err, res) {
+            operation.bind(api)(msg.payload, {data: JSON.stringify(msg.payload)}, function(err, res) {
 
                 if (err) {
                     node.status({
