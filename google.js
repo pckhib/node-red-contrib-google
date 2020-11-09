@@ -123,7 +123,7 @@ module.exports = function(RED) {
             //console.log("operation");
             //console.log(operation.toString());
 
-            operation.bind(api)(msg.payload, {params: {}}, function(err, res) {
+            operation.bind(api)(msg.payload, {headers: { 'Content-Type': 'application/json' }}, function(err, res) {
 
                 if (err) {
                     node.status({
