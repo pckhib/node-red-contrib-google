@@ -3,7 +3,7 @@
   "version": "0.3.2",
   "description": "Node-RED node for Google APIs call using OAuth2.",
   "dependencies": {
-    "googleapis": "git+https://github.com/arnfox/google-api-nodejs-client.git"
+    "googleapis": "^64.0.0"
   },
   "license": "MIT",
   "keywords": [
