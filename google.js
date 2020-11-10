@@ -120,18 +120,12 @@ module.exports = function(RED) {
                 operation = operation[val];
             });
 
-            //console.log("operation");
-            //console.log(operation.toString());
-
-            //operation.bind(api)(msg.payload, {data: {parameters: [22]}}, function(err, res) {
-            //operation.bind(api)(msg.payload, {data: JSON.stringify(msg.payload)}, function(err, res) {
             operation.bind(api)(msg.payload, function(err, res) {
-
                 if (err) {
                     node.status({
                         fill: 'red',
                         shape: 'dot',
-                        text: 'error :('
+                        text: 'error'
                     });
                     node.error(err);
                     return;
