@@ -64,7 +64,7 @@ The node uses the the google apis. For example on how to use these apis the goog
 https://developers.google.com/drive/api/v3/manage-uploads
 
 ### To use it in node-red
-In a function node set up the call to the API.On the assumption that the msg object has a filename and filenameShort property the code would look like
+In a function node set up the call to the API.On the assumption that the msg object has a filename and filenameShort property the code to upload a tar.gz file would look like
 
 ```
 let fs = global.get('fs')
@@ -75,10 +75,11 @@ let fileMetadata = {
     name : msg.filenameShort,
 }
 
-var media = {
+let media = {
     mimeType : 'application/x-tar',
     body :  fs.createReadStream(msg.filename)
 }
+
 msg.payload = {
     resource : fileMetadata,
     media : media,
