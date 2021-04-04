@@ -45,7 +45,7 @@ npm install -g node-red-contrib-google-oauth2
 
 3. Click Authorization and follow the flow. 
 
-##
+## Add fs object to the global modules in node-red
 
 The drive api requires you pass it a stream rather than a buffer. To easily faciltate this in your node-red flows add the fs module to the global modules in your settings.js
 ```
