@@ -44,6 +44,7 @@ npm install -g node-red-contrib-google-oauth2
   ```
 
 3. Click Authorization and follow the flow. 
+4. You should now have a configured google node
 
 ## Add fs object to the global modules in node-red
 
@@ -58,11 +59,11 @@ and restsrt node-red
 
 ## Example use the drive api to create a file
 
-The node uses the the google apis. For example on how to use these apis the googel documentation is very useful
+The node uses the the google apis. For example on how to use these apis the google documentation is very useful. for instance
 
 https://developers.google.com/drive/api/v3/manage-uploads
 
-The 
+### To use it in node-red
 In a function node set up the call to the API.On the assumption that the msg object has a filename and filenameShort property the code would look like
 
 ```
@@ -88,5 +89,6 @@ return msg
 
 ```
 
+and connect it to the google node
 
 
