@@ -55,7 +55,7 @@ The drive api requires you pass it a stream rather than a buffer. To easily faci
     },
 
 ```
-and restsrt node-red
+and restart node-red
 
 ## Example use the drive api to create a file
 
@@ -90,6 +90,6 @@ return msg
 
 ```
 
-and connect it to the google node
+and connect it to the google node. If all has gone well you should be able to upload a file from node red
 
 
