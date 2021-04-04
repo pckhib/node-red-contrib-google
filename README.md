@@ -67,7 +67,7 @@ https://developers.google.com/drive/api/v3/manage-uploads
 In a function node set up the call to the API.On the assumption that the msg object has a filename and filenameShort property the code to upload a tar.gz file would look like
 
 ```
-let fs = global.get('fs')
+const fs = global.get('fs')
 
 msg.payload = {}
 
