@@ -32,7 +32,7 @@ npm install -g node-red-contrib-google-oauth2
   * Choose Web Application.
   * As `Authorized JavaScript origins` enter your Node-RED IP (_e.g. `http://localhost:1880`_)
   * As `Authorized redirect URIs` enter your Node-RED IP plus `/google-credentials/auth/callback` (_e.g. `http://localhost:1880/google-credentials/auth/callback`_)
-  * Hint - if operating remotely or over a vpn where you dont have access to local host you can change your local hosts file to point the VPN address to local host e.g 100.5.2.1 localhost
+  * Hint - if operating remotely or over a vpn where you dont have access to localhost you can change your local hosts file to point the VPN address to local host e.g 100.5.2.1 localhost
 
 2. Copy the `Client ID` and `Client secret` and paste them into the Config Node
 
