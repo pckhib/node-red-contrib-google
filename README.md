@@ -32,5 +32,64 @@ npm install -g node-red-contrib-google-oauth2
   * Choose Web Application.
   * As `Authorized JavaScript origins` enter your Node-RED IP (_e.g. `http://localhost:1880`_)
   * As `Authorized redirect URIs` enter your Node-RED IP plus `/google-credentials/auth/callback` (_e.g. `http://localhost:1880/google-credentials/auth/callback`_)
+  * Hint - if operating remotely or over a vpn where you dont have access to localhost you can change your local hosts file to point the VPN address to local host e.g 100.5.2.1 localhost
 
 2. Copy the `Client ID` and `Client secret` and paste them into the Config Node
+
+ * Add scopes that you would like to access. For instance to access the drive APIs to create and manage files use
+
+  ```
+  https://www.googleapis.com/auth/drive
+  https://www.googleapis.com/auth/drive.file 
+  ```
+
+3. Click Authorization and follow the flow. 
+4. You should now have a configured google node
+
+## Add fs object to the global modules in node-red
+
+The drive api requires you pass it as a stream rather than a buffer. To easily faciltate this in your node-red flows add the fs module to the global modules in your settings.js
+```
+  functionGlobalContext: {
+        fs:require('fs'),
+    },
+
+```
+and restart node-red
+
+## Example use the drive api to create a file
+
+The node uses the google apis. For example on how to use these apis the google documentation is very useful. for instance
+
+https://developers.google.com/drive/api/v3/manage-uploads
+
+### To use it in node-red
+In a function node set up the parameters for the API call (for the google node). On the assumption that the msg object has a filename and filenameShort property the code to upload a tar.gz file would look like
+
+```
+const fs = global.get('fs')
+
+msg.payload = {}
+
+let fileMetadata = {
+    name : msg.filenameShort,
+}
+
+let media = {
+    mimeType : 'application/x-tar',
+    body :  fs.createReadStream(msg.filename)
+}
+
+msg.payload = {
+    resource : fileMetadata,
+    media : media,
+    fields : 'id'
+}
+
+return msg
+
+```
+
+and connect it to the google node. If all has gone well you should be able to upload a file from node red
+
+
